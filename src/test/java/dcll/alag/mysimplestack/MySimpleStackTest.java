@@ -2,6 +2,8 @@ package dcll.alag.mysimplestack;
 
 import org.junit.Test;
 
+import java.util.EmptyStackException;
+
 import static org.junit.Assert.*;
 
 /**
