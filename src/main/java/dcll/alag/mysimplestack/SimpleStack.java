@@ -1,5 +1,7 @@
 package dcll.alag.mysimplestack;
 
+import java.util.EmptyStackException;
+
 /**
  * Created by Alexandre Lagane on 2/10/16.
  */
