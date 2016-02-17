@@ -7,9 +7,9 @@ import static org.junit.Assert.*;
 /**
  * Created by Alexandre Lagane on 2/10/16.
  */
-public class SimpleStackTest {
+public class MySimpleStackTest {
     @Test
-    public void testPushAndPopAndIsEmpty() throws Exception {
+    public void testPushAndPopAndIsEmpty() {
         MySimpleStack ss = new MySimpleStack();
         assertTrue("testIsEmpty 1", ss.isEmpty());
         ss.push(null);
@@ -19,7 +19,7 @@ public class SimpleStackTest {
     }
 
     @Test
-    public void testPushAndGetSize() throws Exception {
+    public void testPushAndGetSize() {
         MySimpleStack ss = new MySimpleStack();
         assertEquals("testGetSize 1", 0, ss.getSize());
         ss.push(null);
@@ -28,7 +28,7 @@ public class SimpleStackTest {
     }
 
     @Test
-    public void testPushAndPeek() throws Exception {
+    public void testPushAndPeek() {
         MySimpleStack ss = new MySimpleStack();
         Item i = new Item();
         ss.push(i);
@@ -37,7 +37,7 @@ public class SimpleStackTest {
     }
 
     @Test
-    public void testPushAndPop() throws Exception {
+    public void testPushAndPop() {
         MySimpleStack ss = new MySimpleStack();
         Item i = new Item();
         ss.push(i);
@@ -45,31 +45,15 @@ public class SimpleStackTest {
         assertSame(i, o);
     }
 
-    @Test
-    public void testExceptionPop() throws Exception {
+    @Test(expected = EmptyStackException.class)
+    public void testExceptionPop() throws EmptyStackException {
         MySimpleStack ss = new MySimpleStack();
-        Throwable e = null;
-
-        try {
-            ss.pop();
-        } catch (Throwable ex) {
-            e = ex;
-        }
-
-        assertTrue(e instanceof EmptyStackException);
+        ss.pop();
     }
 
-    @Test
-    public void testExceptionPeek() throws Exception {
+    @Test(expected = EmptyStackException.class)
+    public void testExceptionPeek() throws EmptyStackException {
         MySimpleStack ss = new MySimpleStack();
-        Throwable e = null;
-
-        try {
-            ss.peek();
-        } catch (Throwable ex) {
-            e = ex;
-        }
-
-        assertTrue(e instanceof EmptyStackException);
+        ss.peek();
     }
 }
